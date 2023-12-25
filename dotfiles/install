@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+rm -rf $HOME/.tmux.conf
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+mkdir -p $HOME/.local/bin
+
+rm -rf $HOME/.local/bin/tmux-sessionizer
+ln -s $DOTFILES/scripts/tmux-sessionizer $HOME/.local/bin/tmux-sessionizer
+
+rm -rf $HOME/.local/bin/ide
+ln -s $DOTFILES/scripts/ide $HOME/.local/bin/ide
+
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
