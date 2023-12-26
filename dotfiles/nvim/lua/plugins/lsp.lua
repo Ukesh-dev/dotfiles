@@ -3,6 +3,13 @@ return {
 	{
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
+			-- Remove "prettier" from the list of installed tools
+			opts.ensure_installed = vim.tbl_filter(function(tool)
+				return tool ~= "prettier"
+			end, opts.ensure_installed)
+
+			-- Add "prettierd" to the list of installed tools
+			table.insert(opts.ensure_installed, "prettierd")
 			vim.list_extend(opts.ensure_installed, {
 				"stylua",
 				"selene",

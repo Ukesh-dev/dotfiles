@@ -84,7 +84,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -127,26 +127,10 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 -- 	vim.diagnostic.goto_next()
 -- end, opts)
 
+-- works
 vim.diagnostic.config({
-	update_in_insert = true,
-	-- float = {
-	-- 	source = "always",
-	-- 	-- border = border,
-	-- },
+	update_in_insert = false,
 })
--- keymap.set("n", "<Leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
--- keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
--- keymap.set("n", "]d", vim.diagnostic.goto_next)
--- keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
-
--- keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-
--- Opens diagnostic whenever there is error
--- keymap.set("n", "<C-e>", function()
--- 	vim.diagnostic.open_float(0, { scope = "line"})
--- end, opts)
-
--- keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
 
 -- Convert the value of hex to hsl:whenever
 keymap.set("n", "<leader>r", function()

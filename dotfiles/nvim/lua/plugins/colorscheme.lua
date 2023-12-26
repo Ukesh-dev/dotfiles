@@ -51,14 +51,15 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
+
+		lualine_bold = true,
 		opts = {
-			style = "night",
+			style = "storm",
 			transparent = true,
 			styles = {
 				sidebars = "transparent",
 				floats = "transparent",
 			},
-			lualine_bold = true,
 			native_lsp = {
 				enabled = true,
 				underlines = {

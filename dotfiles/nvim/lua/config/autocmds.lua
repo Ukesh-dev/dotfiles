@@ -5,10 +5,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	command = "set nopaste",
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	-- 	-- delay update diagnostics
-	update_in_insert = true,
-})
+-- this one works not in the keymaps one
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+-- 	-- 	-- delay update diagnostics
+-- 	update_in_insert = true,
+-- })
 
 -- fix concealllevel for json files
 vim.api.nvim_create_autocmd("FileType", {
