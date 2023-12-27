@@ -1,4 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 return {
 	{
 		"williamboman/mason.nvim",
@@ -33,6 +33,7 @@ return {
 				capabilities = capabilities,
 				-- },
 			},
+
 			--- @type lspconfig.options
 			servers = {
 				cssls = {},
@@ -43,9 +44,10 @@ return {
 				},
 				tsserver = {
 					root_dir = function(...)
-						return require("lspconfig.util").root_pattern(".git")(...)
+						return require("lspconfig.util").root_pattern(".git", ",.eslintrc.*", "eslintrc.*")(...)
 					end,
 					single_file_support = false,
+					-- single_file_support = true,
 					keys = {
 						{
 							"<leader>co",

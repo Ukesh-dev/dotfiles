@@ -14,30 +14,30 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-echo "\$TMUX: $TMUX"
-echo "\$tmux_running: $tmux_running"
+# echo "\$TMUX: $TMUX"
+# echo "\$tmux_running: $tmux_running"
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	tmux new-session -s $selected_name -c $selected
-	echo "Inside there is tmux"
+	# echo "Inside there is tmux"
 	exit 0
 fi
 
 if [[ -n $TMUX ]]; then
 	# Inside tmux, switch or create a new session
 	if ! tmux has-session -t=$selected_name 2>/dev/null; then
-		echo "Inside tmux, creating new session"
+		# echo "Inside tmux, creating new session"
 		tmux new-session -ds $selected_name -c $selected
 	fi
 	tmux switch-client -t $selected_name
 else
 	# Outside tmux, start a new session or attach to an existing one
 	if ! tmux has-session -t=$selected_name 2>/dev/null; then
-		echo "Outside tmux, creating new session"
+		# echo "Outside tmux, creating new session"
 		tmux new-session -s $selected_name -c $selected
 	else
-		echo "Outside tmux, attaching to existing session"
+		# echo "Outside tmux, attaching to existing session"
 		tmux attach-session -t $selected_name
 	fi
-	echo "Outside there is tmux"
+	# echo "Outside there is tmux"
 fi

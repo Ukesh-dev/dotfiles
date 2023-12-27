@@ -3,25 +3,25 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- When text is wrapped, move by terminal rows, not lines, unless a count is provided
+-- -- When text is wrapped, move by terminal rows, not lines, unless a count is provided
 keymap.set("n", "k", "v:count == 0  ? 'gk' : 'k'", { expr = true })
 keymap.set("n", "j", "v:count == 0  ? 'gj' : 'j'", { expr = true })
 
--- Reselect visual selection after indenting
+-- -- Reselect visual selection after indenting
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
-
--- Maintain the cursor when yanking a visual selection
+--
+-- -- Maintain the cursor when yanking a visual selection
 keymap.set("v", "y", "myy`y")
-
--- Disable annoying command line typo
+--
+-- -- Disable annoying command line typo
 vim.keymap.set("n", "q", ":q")
-
--- Delete a word backwards
+--
+-- -- Delete a word backwards
 keymap.set("n", "dw", "vb_d")
 
 -- Easy insertion of a trailing ; or, from insert mode
-keymap.set("i", ";;", "<Eborder-red-800sc>A;")
+keymap.set("i", ";;", "<Esc>A;")
 keymap.set("i", ",,", "<Esc>A,")
 
 -- window management
@@ -49,7 +49,7 @@ keymap.set("n", "<leader>n", ":nohl<CR>")
 
 keymap.set("n", "x", '"_x')
 
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Move lines when in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -69,7 +69,7 @@ vim.keymap.set("n", "<leader>svwm", function()
 end)
 
 -- Paste replace visual selection without copying it.
--- vim.keymap.set("v", "p", '"_dP"')
+vim.keymap.set("v", "p", '"_dP"')
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -84,6 +84,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
+
+-- Don't turn this on as conform is handling this for us
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -91,18 +93,19 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
--- Replace word
+-- -- Replace word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
+--
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
+--
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>")
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
-
+--
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
 
+-- Problem Problem Problem
 keymap.set("n", "te", ":tabedit")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
@@ -126,11 +129,6 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 -- keymap.set("n", "<C-j>", function()
 -- 	vim.diagnostic.goto_next()
 -- end, opts)
-
--- works
-vim.diagnostic.config({
-	update_in_insert = false,
-})
 
 -- Convert the value of hex to hsl:whenever
 keymap.set("n", "<leader>r", function()

@@ -44,6 +44,8 @@ vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.titlestring = "%f // nvim"
 
+-- vim.g.autoformat = false
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])

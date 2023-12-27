@@ -54,7 +54,7 @@ return {
 
 		lualine_bold = true,
 		opts = {
-			style = "storm",
+			style = "night",
 			transparent = true,
 			styles = {
 				sidebars = "transparent",
