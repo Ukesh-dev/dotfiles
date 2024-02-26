@@ -18,7 +18,7 @@ return {
     "stevearc/conform.nvim",
     keys = {
       {
-        "<leader>f",
+        "<leader>fm",
         function()
           require("conform").format({
             lsp_fallback = true,
@@ -30,7 +30,46 @@ return {
       },
     },
     event = { "BufReadPre", "BufNewFile" },
+
     opts = {
+      format = function()
+        -- Customize prettier args
+        --[[ require("conform.formatters.prettier").args = function(ctx)
+          local prettier_roots = { ".prettierrc", ".prettierrc.json", "prettier.config.js" }
+          local args = { "--stdin-filepath", "$FILENAME" }
+
+          local localPrettierConfig = vim.fs.find(prettier_roots, {
+            upward = true,
+            path = ctx.dirname,
+            type = "file",
+          })[1]
+          local globalPrettierConfig = vim.fs.find(prettier_roots, {
+            path = vim.fn.stdpath("config"),
+            type = "file",
+          })[1]
+          local disableGlobalPrettierConfig = os.getenv("DISABLE_GLOBAL_PRETTIER_CONFIG")
+
+          -- Project config takes precedence over global config
+          if localPrettierConfig then
+            vim.list_extend(args, { "--config", localPrettierConfig })
+          elseif globalPrettierConfig and not disableGlobalPrettierConfig then
+            vim.list_extend(args, { "--config", globalPrettierConfig })
+          end
+
+          local hasTailwindPrettierPlugin = vim.fs.find("node_modules/prettier-plugin-tailwindcss", {
+            upward = true,
+            path = ctx.dirname,
+            type = "directory",
+          })[1]
+
+          if hasTailwindPrettierPlugin then
+            vim.list_extend(args, { "--plugin", "prettier-plugin-tailwindcss" })
+          end
+
+          return args
+        end ]]
+      end,
+
       formatters_by_ft = {
         lua = { "stylua" },
         svelte = { { "prettierd", "prettier" } },
@@ -44,6 +83,7 @@ return {
         kotlin = { "ktlint" },
         ruby = { "standardrb" },
         markdown = { { "prettierd", "prettier" } },
+        python = { { "black" } },
         erb = { "htmlbeautifier" },
         html = { "htmlbeautifier" },
         bash = { "beautysh" },
@@ -54,6 +94,16 @@ return {
         css = { { "prettierd", "prettier" } },
         scss = { { "prettierd", "prettier" } },
       },
+
+      --[[ formatters = {
+        -- Customize prettier args
+        prettierd = {
+          condition = function(self, ctx)
+            local prettier_roots = { ".prettierrc", ".prettierrc.json", "prettier.config.js" }
+            return vim.fs.find(prettier_roots, { path = ctx.filename, upward = true })
+          end,
+        },
+      }, ]]
       -- format_after_save = function(bufnr)
       -- 	-- Disable autoformat on certain filetypes
       -- 	local ignore_filetypes = { "sql", "java", "typescript", "typescriptreact" }

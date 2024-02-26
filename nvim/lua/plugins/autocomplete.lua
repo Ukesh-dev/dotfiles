@@ -42,8 +42,11 @@ return {
 
       -- `:` cmdline setup.
       cmp.setup.cmdline(":", {
+        completion = {
+          completeopt = "menu,menuone,noselect",
+        },
+        preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.cmdline(),
-        preselect = "None",
         sources = cmp.config.sources({
           { name = "path" },
         }, {
@@ -56,7 +59,10 @@ return {
         }),
       })
       cmp.setup({
-        preselect = cmp.PreselectMode.None,
+        --[[ completion = {
+          completeopt = "menu,menuone,noselect",
+        },
+        preselect = cmp.PreselectMode.None, ]]
         cmp.mapping.confirm({ select = true }),
         cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),

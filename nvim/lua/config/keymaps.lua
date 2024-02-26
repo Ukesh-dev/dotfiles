@@ -188,3 +188,13 @@ end)
 nnoremap("<leader>5", function()
   harpoon_ui.nav_file(5)
 end)
+
+-- Rest Client Keybinds
+-- Map <Plug>RestNvim to run the request under the cursor
+vim.api.nvim_set_keymap("n", "<leader>xr", "<Plug>RestNvim", { silent = true })
+
+-- Map <Plug>RestNvimPreview to preview the request cURL command
+vim.api.nvim_set_keymap("n", "<leader>xp", "<Plug>RestNvimPreview", { silent = true })
+
+-- Map <Plug>RestNvimLast to re-run the last request
+vim.api.nvim_set_keymap("n", "<leader>xv", "<Plug>RestNvimLast", { silent = true })

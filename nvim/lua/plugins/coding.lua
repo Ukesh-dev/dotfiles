@@ -2,6 +2,7 @@ return {
   -- Create annotations with one keybind, and jump your cursor in the inserted annotation
   {
     "danymat/neogen",
+    enabled = false,
     keys = {
       {
         "<leader>cc",
@@ -89,12 +90,13 @@ return {
   },
 
   {
-    "nvim-cmp",
+    "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })
     end,
   },
+
   {
     "mg979/vim-visual-multi",
   },

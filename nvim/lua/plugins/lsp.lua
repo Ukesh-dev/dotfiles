@@ -16,13 +16,16 @@ return {
         "selene",
         "luacheck",
         "shellcheck",
-        "shfmt",
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "pyright",
       })
     end,
   },
+  --[[ {
+    "github/copilot.vim",
+  }, ]]
 
   -- lsp servers
   {
