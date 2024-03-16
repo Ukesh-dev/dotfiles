@@ -45,7 +45,7 @@ return {
         -- Highlight hex color strings (`#rrggbb`) using that color
         -- hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 
-        hsl_colors = {
+        --[[ hsl_colors = {
           pattern = "hsl%(%d+,? %d+%%,? %d+%%%)",
           group = function(_, match)
             local utils = require("solarized-osaka.hsl")
@@ -67,8 +67,8 @@ return {
 
             return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
           end,
-        },
-        hsl_color = {
+        }, ]]
+        --[[ hsl_color = {
           pattern = "hsl%(%d+,? %d+,? %d+%)",
           group = function(_, match)
             local utils = require("solarized-osaka.hsl")
@@ -77,7 +77,7 @@ return {
             local hex_color = utils.hslToHex(h, s, l)
             return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
           end,
-        },
+        }, ]]
       },
     },
   },

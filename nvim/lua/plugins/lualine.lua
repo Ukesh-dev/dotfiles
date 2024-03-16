@@ -6,7 +6,6 @@ return {
       "arkav/lualine-lsp-progress",
       "nvim-tree/nvim-web-devicons",
     },
-
     config = function()
       local harpoon = require("harpoon.mark")
       local function harpoon_component()
@@ -27,16 +26,22 @@ return {
       end
       require("lualine").setup({
         options = {
-          section_separators = "",
-          component_separators = "",
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "", right = "" },
+          -- component_separators = "",
           globalstatus = true,
-          theme = {
+          theme = "auto",
+          -- theme = "solarized_dark",
+          -- theme = "ayu_mirage",
+          -- theme = "catppuccino",
+          -- theme = "ayu_mirage",
+          --[[ theme = {
             normal = {
               a = "StatusLine",
               b = "StatusLine",
               c = "StatusLine",
             },
-          },
+          }, ]]
         },
 
         sections = {

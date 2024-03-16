@@ -29,7 +29,8 @@ return {
 
     opts = {
       preview_config = {
-        border = { "  ", "  ", "  ", "  " },
+        -- border = { "  ", "  ", "  ", "  " },
+        -- border = { "│", "─", "│", "─" },
       },
       current_line_blame = false,
       current_line_blame_opts = {
@@ -38,22 +39,27 @@ return {
         delay = 1000,
         ignore_whitespace = false,
       },
-      --[[ signs = {
-        add = { text = "│" },
-        change = { text = "│" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "┄" },
-        untracked = { text = "┊" },
-      }, ]]
       signs = {
+        --[[ add = { text = "│" },
+        change = { text = "│" }, ]]
+        add = { text = "▎" },
+        change = { text = "▎" },
+        --[[ delete = { text = "_" },
+        topdelete = { text = "‾" }, ]]
+        delete = { text = "" },
+        topdelete = { text = "" },
+        -- changedelete = { text = "┄" },
+        changedelete = { text = "▎" },
+        untracked = { text = "┊" },
+      },
+      --[[ signs = {
         add = { text = "▎" },
         change = { text = "▎" },
         delete = { text = "" },
         topdelete = { text = "" },
         changedelete = { text = "▎" },
         untracked = { text = "▎" },
-      },
+      }, ]]
 -- stylua: ignore start
     on_attach = function(buffer)
       local gs = package.loaded.gitsigns

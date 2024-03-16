@@ -31,8 +31,8 @@ vim.opt.mouse = "a" -- enable mouse for all modes
 vim.opt.mousemoveevent = true -- Allow hovering in bufferline
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+vim.opt.scrolloff = 9
+vim.opt.sidescrolloff = 9
 vim.opt.clipboard = "unnamed" -- Use Linux system clipboard
 
 vim.opt.confirm = true -- ask for confirmation instead of erroring

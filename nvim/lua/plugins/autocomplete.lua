@@ -29,11 +29,15 @@ return {
       local cmp = require("cmp")
       -- `/` cmdline setup.
       -- opts.preselect = cmp.PreselectMode.noinsert
-      opts.completion = {
+      --[[ opts.completion = {
         completeopt = "noinsert",
-      }
+      } ]]
 
       cmp.setup.cmdline("/", {
+        completion = {
+          completeopt = "menu,menuone,noselect",
+        },
+        preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = "buffer" },
@@ -63,6 +67,9 @@ return {
           completeopt = "menu,menuone,noselect",
         },
         preselect = cmp.PreselectMode.None, ]]
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
         cmp.mapping.confirm({ select = true }),
         cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),

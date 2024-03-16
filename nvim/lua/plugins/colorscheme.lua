@@ -355,6 +355,19 @@ return {
           fg = util.lighten(c.bg_highlight, 0.95),
         }
 
+        hl.DiagnosticUnnecessary = {
+          fg = "#778bba",
+        }
+
+        hl["@punctuation.bracket"] = {
+          fg = "#8e94c6",
+        }
+        hl.Comment = {
+          -- fg = "#8e94c6",
+          fg = "#778bba",
+          italic = true,
+        }
+
         -- Floaterm
         hl.Floaterm = {
           bg = prompt,
@@ -362,6 +375,10 @@ return {
         hl.FloatermBorder = {
           bg = prompt,
           fg = prompt,
+        }
+        hl["@keyword.import"] = {
+          italic = true,
+          fg = "#7DCFFF",
         }
 
         -- Copilot
@@ -398,11 +415,11 @@ return {
         }
         -- colors.bg = "#011727"
         -- colors.bg_statusline = colors.none -- To check if its working try something like "#ff00ff" instead of colors.none
-        colors.bg_visual = "#4f73c1"
-        colors.fg_dark = "#8e94c6" -- this is for dark brackets
-        colors.comment = "#8e94c6"
-        colors.terminal_black = "#778bba" --this is for comment
-        colors.fg_gutter = "#5b5d78"
+        -- colors.bg_visual = "#4f73c1"
+        -- colors.fg_dark = "#8e94c6" -- this is for dark brackets
+        -- colors.comment = "#8e94c6"
+        -- colors.terminal_black = "#778bba" --this is for comment
+        -- colors.fg_gutter = "#5b5d78"
         colors.statement = {
           italice = true,
         }

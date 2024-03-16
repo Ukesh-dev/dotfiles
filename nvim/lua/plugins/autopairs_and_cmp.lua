@@ -15,6 +15,13 @@ return {
       "windwp/nvim-ts-autotag",
       "windwp/nvim-autopairs",
     },
+    opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "codeium",
+        group_index = 1,
+        priority = 100,
+      })
+    end,
     config = function()
       local has_words_before = function()
         unpack = unpack or table.unpack
@@ -37,9 +44,9 @@ return {
 
       cmp.setup({
         -- Select first item automatically
-        completion = {
+        --[[ completion = {
           completeopt = "menu,menuone,noinsert",
-        },
+        }, ]]
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
