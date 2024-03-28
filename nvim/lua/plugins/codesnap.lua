@@ -8,8 +8,8 @@ return {
       require("silicon").setup({
         -- Configuration here, or leave empty to use defaults
         font = "MonoLisaVariable Nerd Font=26",
-        -- theme = "Monokai Extended Light",
-        theme = "Dracula",
+        theme = "Monokai Extended Light",
+        -- theme = "Dracula",
         -- background = "#87f",
         background = "#94e2d5",
         -- output = {

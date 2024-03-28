@@ -1,5 +1,5 @@
 return {
-  --[[ {
+  {
     "Exafunction/codeium.vim",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
@@ -16,12 +16,13 @@ return {
         return vim.fn["codeium#Clear"]()
       end, { expr = true, silent = true })
     end,
-  }, ]]
+  },
 
   -- custom config which piggybacks on the copilot extras in lazy.lua.
-  {
+  --[[ {
     -- "tpope/copilot.lua",
     "zbirenbaum/copilot.lua",
+    enabled = false,
     -- enabled = vim.g.is_code_private(),
     dependencies = {
       "hrsh7th/nvim-cmp",
@@ -55,7 +56,7 @@ return {
         end)
       end
     end,
-  },
+  }, ]]
   --[[ {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {

@@ -341,6 +341,14 @@ return {
           bg = util.darken(c.bg_dark, 0.85, "#000000"),
         }
 
+        -- Telescope
+        hl.TelescopePromptBorder = {
+          fg = "#27a1b9",
+        }
+        hl.TelescopePromptTitle = {
+          fg = "#27a1b9",
+        }
+
         -- Spelling
         hl.SpellBad = {
           undercurl = true,
@@ -415,7 +423,7 @@ return {
         }
         -- colors.bg = "#011727"
         -- colors.bg_statusline = colors.none -- To check if its working try something like "#ff00ff" instead of colors.none
-        -- colors.bg_visual = "#4f73c1"
+        -- colors.bg_visual = "#778bba"
         -- colors.fg_dark = "#8e94c6" -- this is for dark brackets
         -- colors.comment = "#8e94c6"
         -- colors.terminal_black = "#778bba" --this is for comment

@@ -71,8 +71,9 @@ return {
             if cmp.visible() then
               cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
               -- cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-            elseif require("copilot.suggestion").is_visible() then
-              require("copilot.suggestion").accept()
+              -- elseif require("copilot.suggestion").is_visible() then
+              -- require("copilot.suggestion").accept()
+              -- vim.fn["codeium#Accept"]()
             elseif luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
             elseif has_words_before() then

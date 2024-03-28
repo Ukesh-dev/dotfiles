@@ -1,6 +1,6 @@
 -- plugins/rest.lua
 return {
-  "rest-nvim/rest.nvim",
+  --[[   "rest-nvim/rest.nvim",
   dependencies = { { "nvim-lua/plenary.nvim" } },
   config = function()
     --- Get the same options from Packer setup
@@ -50,5 +50,20 @@ return {
       yank_dry_run = true,
       search_back = true,
     })
-  end,
+  end, ]]
+  --[[ {
+    "vhyrro/luarocks.nvim",
+    config = function()
+      require("luarocks").setup({})
+    end,
+  },
+  {
+    enabled = false,
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("rest-nvim").setup()
+    end,
+  }, ]]
 }
